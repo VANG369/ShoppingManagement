@@ -1,0 +1,5 @@
+id,name,brand,cpu,ram,storage,price,stock
+LAP-XPS13,XPS 13,DELL,Intel Core Ultra 7 155H,16,512,1299.99,23
+LAP-ROG16,ROG Zephyrus G16,ASUS,AMD Ryzen 9 8945HS,32,1000,1999.0,16
+MAC-AIR13,MacBook Air M3,Apple,Apple M3,8,512,1299.0,43
+DT-HP240,ProDesk 400,HP,Intel Core i3-12100,8,512,449.5,60

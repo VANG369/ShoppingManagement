@@ -1,0 +1,126 @@
+==== Project Computer Management Sale System====
+
+* Structure System file
+    _ data
+      |--> orders.csv
+      |--> products.csv
+    - models
+      |--> customer.py
+      |--> order.py
+      |--> product.py
+    - services
+      |--> order_service.py
+    - utils
+      |--> display_menu.py
+      |-->file_handler.py
+    main.py
+
+* Feature use bulding all the source code with rules
+    
+    - models
+      |--> customer.py
+            class -> Customer
+            init -> customer_id, name, brand, sth...
+            display
+      |--> order.py
+            class -> Order
+            init -> order_id, customer_name, product_name, quantity, total_price
+            display
+      |--> product.py
+            class -> Product
+            init -> product_id, name, price, stock
+            display
+    -utils
+      |--> display_menu.py
+            > Print all menu as categories
+                = Add Product
+                = View stock
+                = Order Product
+                = Invoice Order
+                = Exit
+      |--> file_handler :
+            > Import (CSV, OS)
+            > Read_Data
+                = Open file use for read
+                = If not os.path.exists...
+                = Check condition with append data as row
+                = Return data 
+            > Write_Data
+                = Open file 
+                = Write header file
+                = Write data
+            >Append_Data
+                = Check if file exists
+                = Open file 
+                = Add header if file empty or new
+                = Add data as row
+    - services
+      |--> order_service.py
+            -> Import all services systems (Prodcut, Order)
+            -> Create file CSV following systems(Product, Order)
+            -> Create class with func as operation system follow rules below:
+                > Load_Product
+                    - Create def laod_products()
+                      $ Create empty list of product. This list will store all product after return value in loop
+                      $ Read data from the file
+                      $ Write all data via loop as row follow index with header file and use try & except to check condition
+                > Add_Product
+                    - Create def add_product
+                      $ Input all information with check condition values
+                      $ Append_Data with (file_name, header, list)
+                > Delete_Product
+                    - Create def Delete_Product()
+                      $ Assign products = self.laod_products
+                      $ Check condition if products == 0
+                      $ Use loop show the product available
+                      $ Input product_id
+                      $ Assign selected_product = none
+                      $ Use conditon in loop to check about the product_id if equle 
+                      $ Use condition to check selected_product if none...
+                      $ Use var confirm assign input selected_product.name as yes/no
+                      $ Check condition if comfirm "yes": products.remove(selected_product)
+                      $ Use file_handler as write data...
+                > View_Stock
+                    - Create def view_stock
+                      $ Get product via varible from load_product
+                      $ Check condition product if empty product
+                      $ Show products if available in stock
+                > Order_Product
+                    - Create def order_product
+                      $ Get product via varible from load_product
+                      $ Check condition product if empty product
+                      $ Show products if available in stock
+                      $ Input information(customer_name, product_id, quantity)
+                      $ Use try & except : quantity as integer
+                      $ Check condition if quantity <= 0  
+                      $ Find selected product
+                      $ Find product via loop in loop via product_id & product
+                      $ Check product in none and show available product
+                      $ Check condition if quantity > product in stock
+                      $ Calculator total_price
+                      $ Generate order ID 
+                      $ Creat order object
+                      $ Save order as file 
+                      $ Update stock with selected_product.stock -= quantity
+                      $ Use loop to append all product in file product_file 
+                > Invoice_Order
+                    - Create def invoice_order
+                      $ Read data 
+                      $ Check codition if no order
+                      $ Use try & except in loop show all order's customer
+    - main      
+        > Import all the file if you want request
+        > Use loop (while True)
+        > Provide categories to users
+        > match the choice as case 1-5 with default
+
+========================
+Example products in stock:
+Product ID: LAP-XPS13 | Model: XPS 13 | Brand: Dell | CPU: Intel Core Ultra 7 155H | RAM: 16GB | Storage: 512GB | Price: $ 1299.99 | Stock: 25
+Product ID: LAP-ROG16 | Model: ROG Zephyrus G16 | Brand: ASUS | CPU: AMD Ryzen 9 8945HS | RAM: 32GB | Storage: 1000GB | Price: $ 1999.00 | Stock: 18
+Product ID: DT-HP240 | Model: ProDesk 400 | Brand: HP | CPU: Intel Core i3-12100 | RAM: 8GB | Storage: 256GB | Price: $ 449.50 | Stock: 60
+Product ID: MAC-AIR13 | Model: MacBook Air M3 | Brand: Apple | CPU: Apple M3 (8-core) | RAM: 16GB | Storage: 512GB | Price: $ 1299.00 | Stock: 45
+Product ID: MPC-THINK | Model: ThinkCentre M70q | Brand: Lenovo | CPU: Intel Core i5-13400T | RAM: 16GB | Storage: 512GB | Price: $ 714.25 | Stock: 11
+
+
+        
