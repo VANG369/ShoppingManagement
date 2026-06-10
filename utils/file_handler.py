@@ -1,7 +1,7 @@
 
 import csv
 import os
-
+# Use for read data from csv file and write data to csv file, also append data to csv file
 def read_data(file_path):
     data = []
 
